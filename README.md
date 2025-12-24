@@ -96,7 +96,6 @@ This repository contains two versions of the project:
 
 
 ## Key Takeaways
-  - Clear baseline → improved workflow demonstrates iterative improvement.
+  - Transformation from baseline to improved workflow demonstrates iterative improvement.
   - Documented architecture, loss functions, hyperparameters, and training pipeline.
-  - Figures show stable, meaningful curves for loss, accuracy, IoU, and soft Dice.
-  - The project demonstrates research rigor, experimental reproducibility, and deep learning proficiency suitable for MSc Data Science applications.
+  - Figures used to visualize loss, accuracy, IoU, and soft Dice.
