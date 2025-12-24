@@ -73,7 +73,7 @@ This repository contains two versions of the project:
 
 ## Usage
   - Clone repository:
-    -  git clone https://github.com/armin-datasci/bachelors-project.git
+    -  git clone https://github.com/armin-datasci/bachelor-project.git
   - Navigate to the version you want:
     -  cd 02-improved-busi-unet
   - Train the model:
