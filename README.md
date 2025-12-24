@@ -24,7 +24,12 @@ This repository contains two versions of the project:
       - Standard UNet encoder-decoder with skip connections
       - Convolution blocks with ReLU activations
       - Dropout: 0.2
-
+  - Improved UNet
+    - Input resolution: 256×256
+    - Reduced dropout: 0.05 (to maintain gradient flow)
+    - Encoder-decoder structure similar to baseline but wider layers to increase capacity (~6M parameters)
+    - Final activation: Sigmoid for binary segmentation
+    - Custom loss: BCE + Dice Loss and metric Soft Dice Coefficient
 
 ## Loss Functions and Metrics
   - Binary Cross-Entropy + Dice Loss (bce_dice_loss) – Combines pixel-wise loss and region-based overlap.
