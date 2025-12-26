@@ -1,6 +1,6 @@
 # Bachelor's Project: Breast Ultrasound Segmentation with UNet
 ## Overview
-This project focuses on semantic segmentation of breast ultrasound images using UNet-based architectures. The goal is to explore the baseline model, improve its performance, and provide a detailed comparison between versions. The dataset used is the BUSI dataset containing benign, malignant, and normal breast images (normal images are not used in segmentation).
+This project focuses on semantic segmentation of breast ultrasound images using UNet-based architectures. The goal is to explore the baseline model, improve its performance, and provide a comparison between versions. The dataset used is the BUSI dataset containing benign, malignant, and normal breast images (normal images are not used in segmentation).
 
 This repository contains two versions of the project:
   - Baseline UNet – Original UNet implementation.
@@ -9,8 +9,8 @@ This repository contains two versions of the project:
 
 ## Dataset
   - BUSI Dataset
-      - Subfolders: benign/, malignant/, normal/ (normal images are not used)
-      - Image naming: e.g., benign(1).png and corresponding mask benign(1)_mask.png
+      - Subfolders: benign/ malignant/ normal/ (normal images are not used)
+      - Image naming: e.g. benign(1).png and corresponding mask benign(1)_mask.png
   
   - Preprocessing
       - Images resized to 256×256 for improved UNet.
