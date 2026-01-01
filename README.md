@@ -132,16 +132,6 @@ Qualitative results, including predicted masks overlaid on input images, are pro
 * Matplotlib
 
 
-### Training
-
-```bash
-python train.py
-```
-
-Ensure that the dataset directory follows the structure described in the dataset section before running the training scripts.
-
----
-
 ## 7. Limitations
 
 This project is conducted within the scope of an undergraduate thesis and is subject to several limitations:
