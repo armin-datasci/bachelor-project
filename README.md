@@ -50,16 +50,25 @@ The baseline model follows the original U-Net design:
 
 This configuration serves as a reference point for evaluating subsequent improvements.
 
-### 3.2 Model Complexity and Parameter Count
+### 3.2 Baseline vs Improved (clean comparison)
 
-To provide a transparent comparison between the baseline and improved architectures, the total number of trainable parameters for each model is reported below.
+To provide a transparent comparison between the baseline and improved architectures, a table is reported below.
+| Aspect         | Baseline             | Improved                      |
+| -------------- | -------------------- | ----------------------------- |
+| Input size     | 128×128              | **256×256**                       |
+| Filters        | [24, 48, 96, 192]    | [24, 48, 96, 192]             |
+| Bottleneck     | 384                  | 384                           |
+| Parameters     | ~4.3M                | ~4.3M                         |
+| Dropout        | **0.1**              | **0.05**                      |
+| Loss           | Binary Cross-Entropy | BCE + **Dice**                    |
+| Metrics        | Accuracy, Mean IoU   | Accuracy, Mean IoU, **Soft Dice** |
+| Batch size     | 8                    | 8                             |
+| Epochs         | 50                   | 50                            |
+| Early stopping | patience = 10        | patience = 10                 |
+| LR (initial)   | 1e-4                 | 1e-4                          |
+| LR scheduler   | ReduceLROnPlateau    | ReduceLROnPlateau             |
 
-| Model Variant  | Input Resolution | Trainable Parameters |
-| -------------- | ---------------- | -------------------- |
-| Baseline U-Net | 128×128          | ~4.3 million         |
-| Improved U-Net | 256×256          | ~ million          |
-
-The increase in parameter count is primarily due to the higher input resolution and corresponding feature map sizes throughout the encoder–decoder pathway. This comparison clarifies the trade-off between model capacity and computational complexity. The reported parameter counts were obtained directly using the Keras `model.summary()` method.
+The baseline U-Net model serves as a conservative reference, prioritizing stability and reproducibility through lower input resolution and pixel-wise supervision using binary cross-entropy loss. In contrast, the improved model introduces higher input resolution to preserve spatial detail and incorporates Dice-based supervision to address class imbalance and region-level accuracy inherent in medical image segmentation. By keeping the architectural capacity unchanged, performance improvements can be attributed to enhanced supervision and richer spatial information rather than increased model complexity.
 
 ---
 
@@ -122,15 +131,6 @@ Qualitative results, including predicted masks overlaid on input images, are pro
 * NumPy
 * Matplotlib
 
-### Installation
-
-```bash
-git clone https://github.com/armin-datasci/bachelor-project.git
-cd bachelor-project
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
 
 ### Training
 
