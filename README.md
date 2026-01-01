@@ -56,8 +56,8 @@ To provide a transparent comparison between the baseline and improved architectu
 
 | Model Variant  | Input Resolution | Trainable Parameters |
 | -------------- | ---------------- | -------------------- |
-| Baseline U-Net | 128×128          | ~5 million         |
-| Improved U-Net | 256×256          | ~10 million          |
+| Baseline U-Net | 128×128          | ~ million         |
+| Improved U-Net | 256×256          | ~ million          |
 
 The increase in parameter count is primarily due to the higher input resolution and corresponding feature map sizes throughout the encoder–decoder pathway. This comparison clarifies the trade-off between model capacity and computational complexity. The reported parameter counts were obtained directly using the Keras `model.summary()` method.
 
@@ -92,6 +92,14 @@ All experiments are conducted using the same train–validation split to ensure 
 
 ## 5. Results and Evaluation
 
+### Evaluation Metrics and Loss Interpretation
+
+The models are trained and evaluated using loss functions and metrics that are standard for binary semantic segmentation tasks in medical imaging. For the baseline model, Binary Cross-Entropy (BCE) loss is employed, while the improved model uses a composite loss defined as the sum of Binary Cross-Entropy and Dice Loss. This combined formulation balances pixel-wise classification accuracy with region-level overlap, which is particularly important in the presence of class imbalance between lesion and background pixels.
+
+During evaluation, the primary reported metrics are Mean Intersection over Union (Mean IoU) and the Dice coefficient. Mean IoU measures the overlap between predicted and ground truth masks relative to their union, while the Dice coefficient emphasizes agreement on the segmented lesion region. These metrics provide complementary perspectives on segmentation quality and are more informative than accuracy alone for pixel-wise prediction tasks.
+
+It is important to note that the observed loss values are relatively low and the accuracy values relatively high due to the strong class imbalance inherent in ultrasound segmentation, where background pixels dominate the images. In such settings, accuracy can be inflated by correct background classification and should therefore not be interpreted as a standalone indicator of segmentation performance. For this reason, overlap-based metrics such as Dice score and IoU are emphasized throughout this project.
+
 The performance of the baseline and improved models is evaluated using standard segmentation metrics.
 
 | Metric     | Baseline U-Net | Improved U-Net |
@@ -109,7 +117,7 @@ Qualitative results, including predicted masks overlaid on input images, are pro
 
 ### Requirements
 
-* Python 3.9 or higher
+* Python 3.9
 * TensorFlow / Keras (2.x)
 * NumPy
 * Matplotlib
@@ -156,10 +164,3 @@ This project demonstrates the application of U-Net-based architectures to breast
 
 * Ronneberger, O., Fischer, P., & Brox, T. (2015). U-Net: Convolutional Networks for Biomedical Image Segmentation.
 * Al-Dhabyani, W., Gomaa, M., Khaled, H., & Fahmy, A. (2020). Dataset of breast ultrasound images.
-
----
-
-## Key Takeaways
-  - Transformation from baseline to improved workflow demonstrates iterative improvement.
-  - Documented architecture, loss functions, hyperparameters, and training pipeline.
-  - Figures used to visualize loss, accuracy, IoU, and soft Dice.
