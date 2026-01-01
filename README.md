@@ -82,7 +82,7 @@ To provide a transparent comparison between the baseline and improved architectu
 | LR (initial)   | 1e-4                 | 1e-4                          |
 | LR scheduler   | ReduceLROnPlateau    | ReduceLROnPlateau             |
 
-The baseline U-Net model serves as a conservative reference, prioritizing stability and reproducibility through lower input resolution and pixel-wise supervision using binary cross-entropy loss. In contrast, the improved model introduces higher input resolution to preserve spatial detail and incorporates Dice-based supervision to address class imbalance and region-level accuracy inherent in medical image segmentation. By keeping the architectural capacity unchanged, performance improvements can be attributed to enhanced supervision and richer spatial information rather than increased model complexity.
+The baseline U-Net model serves as a conservative reference, prioritizing stability and reproducibility through lower input resolution and pixel-wise supervision using binary cross-entropy loss. In contrast, the improved model introduces higher input resolution to preserve spatial detail and incorporates Dice-based supervision to address class imbalance and region-level accuracy inherent in medical image segmentation. By keeping the architectural capacity unchanged, performance improvements can be attributed to richer spatial information, lower dropout, and enhanced supervision rather than increased model's complexity.
 
 ---
 
