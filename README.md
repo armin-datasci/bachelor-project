@@ -73,7 +73,7 @@ To provide a transparent comparison between the baseline and improved architectu
 | Filters        | [24, 48, 96, 192]    | [24, 48, 96, 192]             |
 | Bottleneck     | 384                  | 384                           |
 | Parameters     | ~4.3M                | ~4.3M                         |
-| Dropout        | **0.1**              | **0.05**                      |
+| Dropout        | 0.1              | **0.05**                      |
 | Loss           | Binary Cross-Entropy | BCE + **Dice**                    |
 | Metrics        | Accuracy, Mean IoU   | Accuracy, Mean IoU, **Soft Dice** |
 | Batch size     | 8                    | 8                             |
