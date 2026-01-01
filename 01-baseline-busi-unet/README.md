@@ -5,10 +5,10 @@ Baseline version of a U-Net convolutional neural network for image segmentation 
 
 ### Model Parameters
 - Input shape: 128x128x1
-- Encoder filters: [16, 32, 64, 128]
+- Encoder filters: [24, 48, 96, 192]
 - Bottleneck filters: 256
-- Decoder filters: [128, 64, 32, 16]
-- Dropout rate: 0.2
+- Decoder filters: [192, 96, 48, 24]
+- Dropout rate: 0.1
 - Total parameters: ~4.3M
 - Output: 1 channel, sigmoid
 
@@ -20,12 +20,12 @@ Baseline version of a U-Net convolutional neural network for image segmentation 
 
 ### Training
 - Batch size: 8
-- Epochs: 50 (early stopping at 36)
-- Learning rate: 1e-4 (effectively 5e-5 after ReduceLROnPlateau)
+- Epochs: 50
+- Learning rate: 1e-4
 - Loss: Binary Crossentropy
 - Metrics: Accuracy, MeanIoU
 - Optimizer: Adam
-- Callbacks: EarlyStopping (patience=7), ReduceLROnPlateau
+- Callbacks: EarlyStopping (patience=10), ReduceLROnPlateau
 
 ### Performance
 | Metric | Train | Validation |
