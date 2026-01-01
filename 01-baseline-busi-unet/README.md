@@ -30,6 +30,6 @@ Baseline version of a U-Net convolutional neural network for image segmentation 
 ### Performance
 | Metric | Train | Validation |
 |--------|-------|------------|
-| Accuracy | 0.9542 | 0.9263 |
-| Loss | 0.1891 | 0.3303 |
-| Mean IoU | 0.7081 | 0.6387 |
+| Accuracy | 0.9585 | 0.9241 |
+| Loss | 0.1168  | 0.3481 |
+| Mean IoU | 0.7809 | 0.7249 |
