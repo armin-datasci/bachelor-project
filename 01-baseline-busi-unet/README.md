@@ -6,7 +6,7 @@ Baseline version of a U-Net convolutional neural network for image segmentation 
 ### Model Parameters
 - Input shape: 128x128x1
 - Encoder filters: [24, 48, 96, 192]
-- Bottleneck filters: 256
+- Bottleneck filters: 384
 - Decoder filters: [192, 96, 48, 24]
 - Dropout rate: 0.1
 - Total parameters: ~4.3M
