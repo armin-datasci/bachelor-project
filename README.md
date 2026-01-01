@@ -45,7 +45,7 @@ The baseline model follows the original U-Net design:
 * Encoder–decoder architecture with symmetric downsampling and upsampling paths
 * Convolutional blocks consisting of convolution, activation, and dropout layers
 * Input resolution: 128×128
-* Dropout rate: 0.2
+* Dropout rate: 0.1
 * Loss function: Binary Cross-Entropy
 
 This configuration serves as a reference point for evaluating subsequent improvements.
@@ -56,7 +56,7 @@ To provide a transparent comparison between the baseline and improved architectu
 
 | Model Variant  | Input Resolution | Trainable Parameters |
 | -------------- | ---------------- | -------------------- |
-| Baseline U-Net | 128×128          | ~ million         |
+| Baseline U-Net | 128×128          | ~4.3 million         |
 | Improved U-Net | 256×256          | ~ million          |
 
 The increase in parameter count is primarily due to the higher input resolution and corresponding feature map sizes throughout the encoder–decoder pathway. This comparison clarifies the trade-off between model capacity and computational complexity. The reported parameter counts were obtained directly using the Keras `model.summary()` method.
@@ -104,7 +104,7 @@ The performance of the baseline and improved models is evaluated using standard 
 
 | Metric     | Baseline U-Net | Improved U-Net |
 | ---------- | -------------- | -------------- |
-| Mean IoU   | ~0.45          | ~0.47          |
+| Mean IoU   | ~0.72          | ~0.47          |
 | Dice Score | –              | ~0.70          |
 
 The improved model demonstrates a modest but consistent improvement over the baseline, indicating that higher input resolution and an appropriate loss function contribute positively to segmentation quality. All reported metrics are computed on the validation set and are intended for comparative evaluation only.
