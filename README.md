@@ -45,18 +45,18 @@ bachelor-project
     - notebook/
     - src/
     - figures/
+    - README.md
   - 02-improved-busi-unet/
     - notebook/
     - src/
     - figures/
+    - README.md
   - comparison/
     - plots/
     - tables/
   - README.md
   - LICENSE
   - .gitignore
-
-
 
 ---
 
